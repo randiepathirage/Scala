@@ -1,5 +1,3 @@
-import io.StdIn._
-
 object Sub extends App{
 
 	val x = new Rational(3,4)
@@ -16,10 +14,13 @@ object Sub extends App{
 }
 
 class Rational(n:Int,d:Int){
-
+	require(d>0,"d must be greater than 0")
 	private def GCD(a:Int,b:Int):Int= { if (b==0 ) a else GCD(b,a%b) }
         def numer=n/GCD(n,d)
         def denom=d/GCD(n,d)
+
+	//constructor
+	def this(n:Int)=this(n,1)
 
 	//def neg= new Rational(-this.numer,this.denom)
 	
